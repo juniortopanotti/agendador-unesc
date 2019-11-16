@@ -34,6 +34,18 @@ class UsuarioController {
 
     return res.status(200).json({ id, email, nome, tipo });
   }
+
+  async index(req, res) {
+    const { page = 1, size = 20 } = req.query;
+
+    const usuario = await Usuario.findAll({
+      limit: size,
+      offset: (page - 1) * size,
+      order: ['nome'],
+    });
+
+    return res.json(usuario);
+  }
 }
 
 export default new UsuarioController();
