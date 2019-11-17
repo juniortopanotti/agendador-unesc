@@ -51,7 +51,7 @@ class AtendimentoHorarioService {
           local,
           data: format(baseDate, 'yyyy-MM-dd'),
           inicio: format(inicio, 'HH:mm'),
-          fim: format(addMinutes(inicio, duracao), 'HH:mm'),
+          fim: format(addMinutes(inicio, duracao - 1), 'HH:mm'),
         });
 
         inicio = addMinutes(inicio, duracao);
