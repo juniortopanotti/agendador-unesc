@@ -12,6 +12,8 @@ import CursosRoutes from './app/routes/CursoRoute';
 import AtendimentoRoute from './app/routes/AtendimentoRoute';
 import HorarioRoute from './app/routes/HorarioRoute';
 import UsuarioRoute from './app/routes/UsuarioRoute';
+import SessionRoute from './app/routes/SessionRoute.';
+import CursoController from './app/controllers/CursoController';
 
 const routes = [
   AtendimentoHorarioRoute,
@@ -20,6 +22,7 @@ const routes = [
   AtendimentoRoute,
   HorarioRoute,
   UsuarioRoute,
+  SessionRoute,
 ];
 
 class Routes {
@@ -34,6 +37,7 @@ class Routes {
       UsuarioController.store
     );
     this.router.post('/sessions', SessionController.store);
+    this.router.get('/cursos', CursoController.index);
   }
 
   defaultMiddlewares() {

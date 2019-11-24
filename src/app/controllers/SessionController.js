@@ -46,6 +46,20 @@ class SessionController {
       }),
     });
   }
+
+  async get(req, res) {
+    const { id } = req.userContext;
+    const usuario = await Usuario.findByPk(id);
+
+    const { nome, tipo, email } = usuario;
+
+    return res.json({
+      id,
+      email,
+      nome,
+      tipo,
+    });
+  }
 }
 
 export default new SessionController();
