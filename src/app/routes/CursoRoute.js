@@ -6,15 +6,6 @@ import roleMiddleware from '../middlewares/role';
 
 class CursosRoute {
   static create(router) {
-    router.get(
-      '/cursos',
-      roleMiddleware.authorize([
-        Role.Administrador,
-        Role.Analista,
-        Role.Monitorando,
-      ]),
-      CursoController.index
-    );
     router.post(
       '/cursos',
       roleMiddleware.authorize([Role.Administrador]),
